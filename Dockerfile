@@ -55,5 +55,7 @@ ADD startup.sh /tmp/startup.sh
 ADD files/ /tmp/
 RUN cd /tmp/restore && npm install
 
+RUN chmod 0777 /tmp
+
 # Start ssh services.
 CMD ["/bin/bash", "/tmp/startup.sh"]
