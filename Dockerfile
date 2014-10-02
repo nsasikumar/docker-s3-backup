@@ -11,6 +11,8 @@ FROM      ubuntu:14.04
 MAINTAINER Connectify <bprodoehl@connectify.me>
 
 RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe" > /etc/apt/sources.list
+# Add this line to avoid tzdata-java version conflict with tzdata for default-jre
+RUN echo "deb http://archive.ubuntu.com/ubuntu trusty-updates main" >> /etc/apt/sources.list
 
 # Keep the image as small as possible by disabling apt cache and compressing the apt index
 RUN echo 'Dir::Cache { srcpkgcache ""; pkgcache ""; }' > /etc/apt/apt.conf.d/02nocache
